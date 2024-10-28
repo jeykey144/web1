@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>[mccms_title]</title>
+  <meta name="keywords" content="[mccms_keywords]">
+  <meta name="description" content="[mccms_description]">
+  [mccms_packs]
+</head>
+<body class="p-index">
+  <header class="header">
+    <h1 class="logo">
+      <a href="[mccms_path]"><img src="[mccms_tpl]img/logo.png" alt="[mccms_name]"></a>
+    </h1>
+    <a href="[mccms_custom_search]"><i class="ift-nav_search"></i></a>
+  </header>
+  <main class="main p-index-mn under-header">
+    <aside class="float-nav hide">
+      <header class="header">
+        <h1 class="logo">
+          <a href="[mccms_path]"><img src="[mccms_tpl]img/logo.png" alt="[mccms_name]"></a>
+        </h1>
+        <a href="[mccms_custom_search]"><i class="ift-nav_search"></i></a>
+      </header>
+    </aside>
+    <!-- banner 轮播 -->
+    <div class="banner">
+      <div class="swiper-wrapper">
+        {mccms:comic table="comic" where="tid=1" limit="5" order="yhits desc"}
+        <div class="swiper-slide">
+          <a href="[comic:link]">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url([mccms_tpl]img/bg_loading_img_3.2.png)"  data-src="[comic:pic]" alt="[comic:name]">
+          </a>
+        </div>
+        {/mccms:comic}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="banner-bg"></div>
+    </div>
+    <div class="nav-menu">
+      <a class="menu-item" href="[mccms_custom_update]">
+        <img class="item-icon" src="[mccms_tpl]img/pic_index_gx.png" alt="更新">
+      </a>
+      <a class="menu-item" href="[mccms_custom_top]">
+        <img class="item-icon" src="[mccms_tpl]img/pic_index_ph.png" alt="排行">
+      </a>
+    </div>
+    <div class="floor dj">
+      <h2 class="title"><a href="[mccms_custom_update]"><i class="icon i-hm-cx"></i><span>truyện mới cập nhật</span></i><span class="more">xem thêm<i class="i-hm-more"></i></span></a></h2>
+      <div class="floor-view">
+        <ul class="clearfix">
+        {mccms:comic table="comic" field="*" limit="15" order="addtime desc"}
+          <li class="comic-item">
+              <a href="[comic:link]"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url([mccms_tpl]img/bg_loading_img_3.4.png)" data-src="[comic:pic]" alt="[comic:name]"></a>
+              <div class="comic-info-box">
+                <p class="comic-name">[comic:name]</p>
+                [comic:zdy zd=comic_chapter,name,id,mid]
+              </div> 
+          </li>
+        {/mccms:comic}
+        </ul>
+      </div>
+    </div>  
+    <div class="floor">
+      <h2 class="title"><a href="[mccms_url_category_quality_39]"><i class="icon i-hm-jp"></i><span>đề xuất</span><span class="more">xem thêm<i class="i-hm-more"></i></span></a>
+      </h2>
+      <div class="floor-view">
+        <ul class="clearfix">
+        {mccms:type table="comic_type" field="mid" where="tid=39" limit="9" order="id desc"}
+          {mccms:comic table="comic" field="*" where="id=[type:mid]" limit="1"}
+          <li class="comic-item-jp">
+            <a href="[comic:link]">
+              <img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="background-image: url([mccms_tpl]img/bg_loading_img_3.2.png)"  data-src="[comic:pic]" alt="[comic:name]">
+              <div class="comic-info-box">
+                <p class="comic-name">[comic:name]</p>
+                [comic:zdy zd=comic_chapter,name,id,mid]
+              </div>
+            </a>
+          </li>
+          {/mccms:comic}
+        {/mccms:type}
+        </ul>
+      </div>
+    </div>
+    <div class="floor dj">
+      <h2 class="title"><a href="[mccms_url_category_copyright_47]"><i class="icon i-hm-dj"></i><span>truyện được nhóm dịch ghim</span></i><span class="more">xem thêm<i class="i-hm-more"></i></span></a></h2>
+      <div class="floor-view">
+        <ul class="clearfix">
+        {mccms:type table="comic_type" field="mid" where="tid=47" limit="12" order="id desc"}
+          {mccms:comic table="comic" field="*" where="id=[type:mid]" limit="1"}
+          <li class="comic-item">
+            <a href="[comic:link]">
+              <img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="background-image: url([mccms_tpl]img/bg_loading_img_3.4.png)"  data-src="[comic:pic]" alt="[comic:name]">
+              <div class="comic-info-box">
+                <p class="comic-name">[comic:name]</p>
+                [comic:zdy zd=comic_chapter,name,id,mid]
+                              </div>
+            </a>
+          </li>
+          {/mccms:comic}
+        {/mccms:type}
+        </ul>
+      </div>
+    </div>
+    <div class="floor">
+      <h2 class="title"><a href="[mccms_url_category_quality_38]"><i class="icon i-hm-hz"></i><span>truyện team dịch</span></i><span  class="more">xem thêm<i class="i-hm-more"></i></span></a></h2>
+      <div class="floor-view">
+        <ul class="clearfix">
+        {mccms:type table="comic_type" field="mid" where="tid=38" limit="15" order="id desc"}
+          {mccms:comic table="comic" field="*" where="id=[type:mid]" limit="1"}
+          <li class="comic-item">
+              <a href="[comic:link]"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url([mccms_tpl]img/bg_loading_img_3.4.png)" data-src="[comic:pic]" alt="[comic:name]"></a>
+              <div class="comic-info-box">
+                <p class="comic-name">[comic:name]</p>
+                [comic:zdy zd=comic_chapter,name,id,mid]
+                              </div>
+          </li>
+        {/mccms:comic}
+        {/mccms:type}
+        </ul>
+      </div>
+    </div>
+    <div class="floor">
+      <h2 class="title"><a href="[mccms_custom_ascension]"><i class="icon i-hm-ss"></i><span>truyện xem nhiều</span></i><span class="more">xem thêm<i class="i-hm-more"></i></span></a></h2>
+      <div class="floor-view">
+        <ul class="clearfix">
+          {mccms:comic table="comic" field="*" where="addtime > [mccms_time]-86400*7" limit="10" order="hits desc"}
+          <li class="m-up-item1 clearfix">
+            <div class="cover-wrap">
+              <a href="[comic:link]">
+                <img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url([mccms_tpl]img/bg_loading_img_3.4.png)" data-src="[comic:pic]" alt="[comic:name]">
+              </a>
+            </div>
+            <div class="item-info">
+              <a href="[comic:link]">
+                <p class="comic-name">[comic:name]</p>
+                <div class="tag-box clearfix">
+                {mccms:type table="comic_type" field="tid" where="mid=[comic:id]" limit="1"}
+                 <p class="comic-update-info">mới Cập nhật：[comic:zdy zd=comic_chapter,name,id,mid]</p> 
+                {/mccms:type}
+                </div>
+                <p class="comic-click"><strong>[comic:hits wan=1] lượt Xem</strong></p>
+              </a>
+            </div>
+          </li>
+          {/mccms:comic}
+        </ul>
+      </div>
+    </div>
+  </main>
+<footer class="footer clearfix">
+  <span class="char-img"></span>
+</footer>
+[mccms_bottom]
+<script>
+$(function(){
+  $('#nav-index').addClass('z-active');
+})
+</script>
+</body>
+</html>
